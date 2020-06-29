@@ -10,8 +10,9 @@ class Bootp(BaseAnalyzer):
 
     """Bootstrap protocol (BOOTP) analyzer."""
 
-    _mac_address_states = {}
-    _assigned_ip_addresses = {}
+    def __init__(self):
+        self._mac_address_states = {}
+        self._assigned_ip_addresses = {}
 
     def _check_packet(self, ethernet_frame, timestamp=None):
         is_bootp_packet = False
