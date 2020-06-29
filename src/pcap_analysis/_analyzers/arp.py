@@ -12,10 +12,11 @@ class Arp(BaseAnalyzer):
 
     """Address resolution protocol (ARP) analyzer."""
 
-    _device_arp_tables = {}  # does not include gratuitous ARPs -- they are added in dynamically later
-    _gratuitous_announcements = {}
-    _mac_address_states = {}  # keyed by (sender MAC, query target IP)
-    _probes = {}
+    def __init__(self):
+        self._device_arp_tables = {}  # does not include gratuitous ARPs -- they are added in dynamically later
+        self._gratuitous_announcements = {}
+        self._mac_address_states = {}  # keyed by (sender MAC, query target IP)
+        self._probes = {}
 
     def _check_packet(self, ethernet_frame, timestamp=None):
         is_arp_packet = False

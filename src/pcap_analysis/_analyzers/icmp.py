@@ -11,7 +11,8 @@ class Icmp(BaseAnalyzer):
 
     """Internet control message protocol (ICMP) analyzer."""
 
-    _pings = {}  # {source_ip: {target_ip: {seq_num:  {req_ts, resp_ts}, ...}, ...}, ... }
+    def __init__(self):
+        self._pings = {}  # {source_ip: {target_ip: {seq_num:  {req_ts, resp_ts}, ...}, ...}, ... }
 
     def _check_packet(self, ethernet_frame, timestamp=None):
         is_icmp_packet = False
